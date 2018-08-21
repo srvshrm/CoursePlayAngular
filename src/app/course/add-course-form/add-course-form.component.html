@@ -1,0 +1,30 @@
+<h4>Add Course</h4>
+<br>
+<form [formGroup]="courseForm" (ngSubmit)='addCourseForm(courseForm)'>
+  <div class="form-group">
+    <label for="Course Name"><b>Course Name:</b></label>
+    <input type="text" class="form-control"  placeholder="Enter Course Name" formControlName="courseName"
+      required/>
+    <div *ngIf="courseForm.controls['courseName'].touched && !courseForm.controls['courseName'].valid">
+      <span *ngIf="courseForm.controls['courseName'].hasError('required')">
+      Course Name is required!!
+    </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="Course Duration"><b>Course Duration:</b></label>
+    <input type="text" class="form-control" (keyup)="courseForm.controls['courseDuration'].valid" placeholder="Enter Course Duration (e.g 1 Year)" formControlName="courseDuration"
+      required/>
+    <span *ngIf="courseForm.controls['courseDuration'].hasError('pattern')">
+      Input should be in format like 1 Year, 1 Month, 1 Hour!!
+    </span>
+    <div *ngIf="courseForm.controls['courseDuration'].touched">
+      <span *ngIf="courseForm.controls['courseDuration'].hasError('required')">
+        Course Duration is required!!
+      </span>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="submit" class="btn btn-success" value="Add Course" [disabled]='!courseForm.valid' />
+  </div>
+</form>

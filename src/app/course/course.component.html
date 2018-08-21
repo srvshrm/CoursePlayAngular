@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="col-lg-4" style="border-right: 1px solid lightgrey">
+    <h4>Course List</h4>
+    <br/>
+    <ul *ngFor="let c of course">
+      <li>{{c.courseName}}</li>
+    </ul>
+  </div>
+  <div class="col-lg-8" style="padding-left: 2em;">
+    <app-add-course-form (courseFormValue)="addCourseArray($event)"></app-add-course-form>
+    <br/>
+    <hr>
+    <app-get-duration></app-get-duration>
+    <br/>
+  </div>
+</div>

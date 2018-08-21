@@ -1,0 +1,12 @@
+<h3>Courses</h3>
+<br/>
+<table>
+  <tr *ngFor="let c of courseJson">
+    <td>
+      <li><b>Course Name:</b> {{c.courseName | lowercase}}</li>
+    </td>
+    <td style="padding:1em">
+      <b>Course Price:</b> {{c.coursePrice | currency:'INR':false}}
+    </td>
+  </tr>
+</table>

@@ -1,0 +1,7 @@
+.navbar{
+    border-radius: 5px;
+}
+
+li:active{
+    font-weight: bold;
+}
